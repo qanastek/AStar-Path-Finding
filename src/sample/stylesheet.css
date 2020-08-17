@@ -1,0 +1,16 @@
+* {
+    -fx-test_background_color: #007780;
+
+    -fx-background_color_primary: #282941;
+    -fx-background_color_secondary: #3E425B;
+
+    -fx-grounds: #282941;
+    -fx-walls: #3E425B;
+    -fx-path: #0ea28d;
+    -fx-departure: #adb70c;
+    -fx-arrival: #ac3d56;
+}
+
+.root {
+    -fx-background-color: -fx-test_background_color;
+}
