@@ -1,6 +1,4 @@
 * {
-    -fx-test_background_color: #007780;
-
     -fx-background_color_primary: #282941;
     -fx-background_color_secondary: #3E425B;
 
@@ -9,8 +7,39 @@
     -fx-path: #0ea28d;
     -fx-departure: #adb70c;
     -fx-arrival: #ac3d56;
+    -fx-visited: #5d5d7a;
+
+    -fx-background-side-menu: #ff7693;
+    -fx-button-side-menu: #6395F3;
+    -fx-button-side-menu-text: #ffffff;
 }
 
 .root {
-    -fx-background-color: -fx-test_background_color;
+    -fx-background-color: -fx-background_color_primary;
+}
+
+.background-side-menu {
+    -fx-background-color: -fx-background_color_secondary;
+    -fx-text-fill: -fx-button-side-menu-text;
+}
+
+.button-side-menu-left {
+    -fx-background-color: -fx-button-side-menu;
+    -fx-text-fill: -fx-button-side-menu-text;
+    -fx-background-radius: 5px 0px 0px 5px;
+    -fx-border-radius: 5px 0px 0px 5px;
+}
+
+.button-side-menu-center {
+    -fx-background-color: -fx-button-side-menu;
+    -fx-text-fill: -fx-button-side-menu-text;
+    -fx-background-radius: 0px 0px 0px 0px;
+    -fx-border-radius: 0px 0px 0px 0px;
+}
+
+.button-side-menu-right {
+    -fx-background-color: -fx-button-side-menu;
+    -fx-text-fill: -fx-button-side-menu-text;
+    -fx-background-radius: 0px 5px 5px 0px;
+    -fx-border-radius: 0px 5px 5px 0px;
 }

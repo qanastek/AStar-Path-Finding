@@ -1,6 +1,9 @@
 package sample.Models;
 
+import javafx.scene.input.MouseEvent;
+import javafx.util.Pair;
 import sample.Config.BoardSettings;
+import sample.Controller;
 
 import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
@@ -9,6 +12,12 @@ public class Board {
 
     // The board
     public ArrayList<ArrayList<Tile>> matrix;
+
+    // The departure
+    public Tile departure;
+
+    // The arrival
+    public Tile arrival;
 
     /**
      * Constructor
@@ -25,6 +34,7 @@ public class Board {
         this.generateDeparturesAndArrival();
 
         // Add walls
+        // By hand
     }
 
     /**
@@ -39,12 +49,17 @@ public class Board {
         int x1 = ThreadLocalRandom.current().nextInt(min, max + 1);
         int y1 = ThreadLocalRandom.current().nextInt(min, max + 1);
 
+        // Set coordinates and place it
+        this.departure = this.matrix.get(x1).get(y1);
+        this.departure.setType(TileType.DEPARTURE);
+
         // Arrival
         int x2 = ThreadLocalRandom.current().nextInt(min, max + 1);
         int y2 = ThreadLocalRandom.current().nextInt(min, max + 1);
 
-        this.matrix.get(x1).set(y1, Tile.DEPARTURE);
-        this.matrix.get(x2).set(y2, Tile.ARRIVAL);
+        // Set coordinates and place it
+        this.arrival = this.matrix.get(x2).get(y2);
+        this.arrival.setType(TileType.ARRIVAL);
     }
 
     /**
@@ -60,11 +75,24 @@ public class Board {
 
             // Y axis
             for (int j = 0; j < BoardSettings.DIMENSIONS; j++) {
-                row.add(Tile.GROUNDS);
+
+                // Instantiate the tile
+                Tile tile = new Tile(TileType.GROUNDS);
+
+                // Set coordinates
+                tile.setX(i);
+                tile.setY(j);
+
+                // System.out.println(tile);
+
+                // Add it to the row
+                row.add(tile);
             }
 
             // Insert
             this.matrix.add(row);
+
+            System.out.println(row);
         }
     }
 
@@ -80,5 +108,34 @@ public class Board {
      */
     public Board(Board board) {
         this.matrix = board.matrix;
+    }
+
+    public static Tile projection(MouseEvent event) {
+
+        double xRes = event.getSceneX();
+        double yRes = event.getSceneY();
+
+        int x = (int) (xRes / BoardSettings.TILE_WIDTH);
+        int y = (int) (yRes / BoardSettings.TILE_HEIGHT);
+
+        return Controller.BOARD.matrix.get(x).get(y);
+    }
+
+    /**
+     * Reset all walls
+     */
+    public void resetWalls() {
+
+        for (ArrayList<Tile> row : this.matrix) {
+
+            for (Tile tile: row) {
+
+                if (tile.getType() == TileType.WALLS) {
+
+                    // Change It to ground
+                    tile.setType(TileType.GROUNDS);
+                }
+            }
+        }
     }
 }

@@ -13,4 +13,7 @@ public class BoardSettings {
 
     // The stroke width
     public static final int STROKE_WIDTH = 2;
+
+    // Game status
+    public static boolean GAME_STATUS = false;
 }

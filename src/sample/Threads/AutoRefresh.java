@@ -13,17 +13,13 @@ import java.util.ArrayList;
 
 public class AutoRefresh extends Task {
 
-    // The board
-    private Board board;
-
     // The canvas
     private GraphicsContext gc;
 
     /**
      * Constructor
      */
-    public AutoRefresh(Board board, GraphicsContext gc) {
-        this.board = board;
+    public AutoRefresh(GraphicsContext gc) {
         this.gc = gc;
     }
 
@@ -34,7 +30,7 @@ public class AutoRefresh extends Task {
         boolean isRunning = true;
 
         // Framerate
-        int refreshRate = 2000;
+        int refreshRate = 200;
 
         while (isRunning) {
             this.refresh();
@@ -49,16 +45,14 @@ public class AutoRefresh extends Task {
      */
     private void refresh() {
 
-        System.out.println("Refresh");
-
         // Setup the gc
         this.gc.setLineWidth(BoardSettings.STROKE_WIDTH);
 
         // X axis
-        for (int i = 0; i < this.board.matrix.size(); i++) {
+        for (int i = 0; i < Controller.BOARD.matrix.size(); i++) {
 
             // Row
-            ArrayList<Tile> row = this.board.matrix.get(i);
+            ArrayList<Tile> row = Controller.BOARD.matrix.get(i);
 
             // Y axis
             for (int j = 0; j < row.size(); j++) {

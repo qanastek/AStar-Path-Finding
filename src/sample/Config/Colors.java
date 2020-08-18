@@ -6,5 +6,6 @@ public class Colors {
     public static final String PATH = "#0ea28d";
     public static final String DEPARTURE = "#adb70c";
     public static final String ARRIVAL = "#ac3d56";
+    public static final String VISITED = "#5d5d7a";
     public static final String STROKE = "#aaaaaa";
 }
