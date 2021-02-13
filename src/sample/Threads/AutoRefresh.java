@@ -5,8 +5,7 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 import sample.Config.BoardSettings;
 import sample.Config.Colors;
-import sample.Controller;
-import sample.Models.Board;
+import sample.Vues.Main.Controller;
 import sample.Models.Tile;
 
 import java.util.ArrayList;

@@ -3,7 +3,7 @@ package sample.Threads;
 import javafx.concurrent.Task;
 import javafx.util.Pair;
 import sample.Config.SearchSettings;
-import sample.Controller;
+import sample.Vues.Main.Controller;
 import sample.Models.Tile;
 import sample.Models.TileType;
 
@@ -114,7 +114,7 @@ public class SearchPath extends Task {
         }
 
         System.out.println("current: " + currentTile);
-        System.out.println("closest: " + closest);
+//        System.out.println("closest: " + closest);
 
         return closest;
     }

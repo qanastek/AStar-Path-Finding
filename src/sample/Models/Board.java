@@ -1,9 +1,8 @@
 package sample.Models;
 
 import javafx.scene.input.MouseEvent;
-import javafx.util.Pair;
 import sample.Config.BoardSettings;
-import sample.Controller;
+import sample.Vues.Main.Controller;
 
 import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;

@@ -1,11 +1,10 @@
-package sample;
+package sample.Vues.Main;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.GridPane;
 import sample.Config.BoardSettings;
 import sample.Models.Board;
 import sample.Models.Tile;
